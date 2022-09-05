@@ -1,19 +1,18 @@
 <script setup lang="ts">
-import { onMounted } from "vue";
-import MoviesTableElement from "./MoviesTableElement.vue";
-import MoviesService from "../../services/moviesService";
+import { onMounted, ref } from "vue";
+import MoviesService, { Movie } from "../../services/moviesService";
 
-let movies = null;
+let movies = ref([] as Movie[]);
 
-onMounted(() => {
+onMounted(async () => {
   console.log(`the component is now mounted.`);
-  movies = MoviesService.getMovies();
+  movies.value = await MoviesService.getMovies();
   console.log(movies);
 });
 </script>
 
 <template>
-  <v-table>
+  <v-table density="compact">
     <thead>
       <tr>
         <th class="text-left"></th>
@@ -24,12 +23,12 @@ onMounted(() => {
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>12.</td>
-        <td>Matrix Rewolucja</td>
-        <td>2012-12-12</td>
-        <td>Lana Wachowski, Lilly Wachowski</td>
-        <td>2003</td>
+      <tr v-for="(movie, index) in movies" :key="index">
+        <td>{{ index }}</td>
+        <td>{{ movie.title }}</td>
+        <td>{{ movie.watch_date }}</td>
+        <td>{{ movie.director }}</td>
+        <td>{{ movie.production_year }}</td>
       </tr>
     </tbody>
   </v-table>
