@@ -19,3 +19,9 @@ TODO
 
 - Unpin version of vite when this issue
   will be resolved https://github.com/vuetifyjs/vuetify-loader/issues/267
+
+- Allow to hide Directors and release date
+
+- Add search with fzf
+
+- Allow to sort by all the pools
