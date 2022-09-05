@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
+import MoviesTable from "./MoviesTable/MoviesTable.vue";
+import MoviesTableElement from "./MoviesTable/MoviesTableElement.vue";
 
 defineProps<{ msg: string }>();
 
@@ -7,6 +9,9 @@ const count = ref(0);
 </script>
 
 <template>
+  <MoviesTable />
+  <MoviesTableElement />
+
   <h1>{{ msg }}</h1>
 
   <div class="card">
