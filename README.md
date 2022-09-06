@@ -24,4 +24,13 @@ TODO
 
 - Add search with fzf
 
+- Add add button next to search
+
+- Add header with option like
+
+- Series
+- Movie's
+- Books
+- TODO
+
 - Allow to sort by all the pools
