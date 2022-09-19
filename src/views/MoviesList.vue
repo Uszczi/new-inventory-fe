@@ -26,7 +26,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div>
+  <div class="mt-10">
     <div style="display: flex; align-items: center">
       <v-text-field
         dense

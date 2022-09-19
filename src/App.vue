@@ -1,59 +1,60 @@
 <template>
-  <v-app>
-    <v-card>
-      <v-layout>
-        <!-- <v-system-bar color="deep-purple darken-3"></v-system-bar> -->
+  <v-app style="background-color: red">
+    <v-layout style="background-color: #f9f9f9">
+      <v-app-bar color="#D5C9DF">
+        <v-app-bar-nav-icon
+          variant="text"
+          @click.stop="drawer = !drawer"
+        ></v-app-bar-nav-icon>
 
-        <v-app-bar color="primary" prominent>
-          <v-app-bar-nav-icon
-            variant="text"
-            @click.stop="drawer = !drawer"
-          ></v-app-bar-nav-icon>
+        <v-toolbar-title>asdffads</v-toolbar-title>
 
-          <v-toolbar-title>My files</v-toolbar-title>
+        <v-spacer></v-spacer>
 
-          <v-spacer></v-spacer>
+        <v-btn variant="text" icon="mdi-magnify"></v-btn>
+        <v-btn variant="text" icon="mdi-filter"></v-btn>
+        <v-btn variant="text" icon="mdi-dots-vertical"></v-btn>
+      </v-app-bar>
 
-          <v-btn variant="text" icon="mdi-magnify"></v-btn>
+      <v-navigation-drawer v-model="drawer" bottom temporary>
+        <v-list @update:selected="updateSelected" :items="items">
+          <v-list-item>
+            <router-link to="/movie"> Movie </router-link>
+          </v-list-item>
+          <v-list-item>
+            <router-link to="/"> Books </router-link>
+          </v-list-item>
+          <v-list-item>
+            <router-link to="/movies"> Movies </router-link>
+          </v-list-item>
+        </v-list>
+      </v-navigation-drawer>
 
-          <v-btn variant="text" icon="mdi-filter"></v-btn>
-
-          <v-btn variant="text" icon="mdi-dots-vertical"></v-btn>
-        </v-app-bar>
-
-        <v-navigation-drawer v-model="drawer" bottom temporary>
-          <v-list :items="items"></v-list>
-        </v-navigation-drawer>
-
-        <v-main>
-          <router-view></router-view>
-        </v-main>
-      </v-layout>
-    </v-card>
+      <v-main style="display: flex; justify-content: center">
+        <router-view></router-view>
+      </v-main>
+    </v-layout>
   </v-app>
 </template>
 
 <script>
 export default {
   data: () => ({
+    selectedPage: null,
     drawer: false,
     group: null,
     items: [
       {
-        title: "Foo",
+        title: "Books",
         value: "foo",
       },
       {
-        title: "Bar",
+        title: "Movies",
         value: "bar",
       },
       {
-        title: "Fizz",
+        title: "Series",
         value: "fizz",
-      },
-      {
-        title: "Buzz",
-        value: "buzz",
       },
     ],
   }),
@@ -61,6 +62,7 @@ export default {
   watch: {
     group() {
       this.drawer = false;
+      console.log(group);
     },
   },
 };
