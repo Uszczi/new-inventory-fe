@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted, ref, watch } from "vue";
-import MoviesService, { Movie } from "../../services/moviesService";
+import MoviesService, { Movie } from "../services/moviesService";
 
 let movies = ref([] as Movie[]);
 let toDisplayMovies = ref([] as Movie[]);
