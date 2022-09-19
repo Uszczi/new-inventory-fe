@@ -1,82 +1,43 @@
 <template>
-  <v-card>
-    <v-layout>
-      <!-- <v-system-bar color="deep-purple darken-3"></v-system-bar> -->
+  <v-app>
+    <div class="page_wrapper">
+      <v-card min-width="1100px" max-width="1100px" min-height="500px">
+        <v-tabs v-model="tab" background-color="primary">
+          <v-tab value="one">Movies</v-tab>
+          <v-tab value="two">Series</v-tab>
+          <v-tab value="three">Books</v-tab>
+          <v-tab value="hree">TODO</v-tab>
+        </v-tabs>
 
-      <v-app-bar color="primary" prominent>
-        <v-app-bar-nav-icon
-          variant="text"
-          @click.stop="drawer = !drawer"
-        ></v-app-bar-nav-icon>
-
-        <v-toolbar-title>My files</v-toolbar-title>
-
-        <v-spacer></v-spacer>
-
-        <v-btn variant="text" icon="mdi-magnify"></v-btn>
-
-        <v-btn variant="text" icon="mdi-filter"></v-btn>
-
-        <v-btn variant="text" icon="mdi-dots-vertical"></v-btn>
-      </v-app-bar>
-
-      <v-navigation-drawer v-model="drawer" bottom temporary>
-        <v-list :items="items"></v-list>
-      </v-navigation-drawer>
-
-      <v-main>
         <v-card-text>
-          The navigation drawer will appear from the bottom on smaller size
-          screens.
+          <v-window v-model="tab">
+            <v-window-item value="one">
+              <MoviesTableVue />
+            </v-window-item>
+            <v-window-item value="two">
+              <MoviesTableVue />
+            </v-window-item>
+            <v-window-item value="three">
+              <MoviesTableVue />
+            </v-window-item>
+          </v-window>
         </v-card-text>
-      </v-main>
-    </v-layout>
-  </v-card>
+      </v-card>
+    </div>
+  </v-app>
 </template>
 
-<script lang="ts">
-import MoviesTableElementVue from "./MoviesTable/MoviesTableElement.vue";
+<script setup lang="ts">
+import { ref } from "vue";
+
 import MoviesTableVue from "./MoviesTable/MoviesTable.vue";
 
-export default {
-  components: { MoviesTableVue },
-  data: () => ({
-    drawer: false,
-    group: null,
-    items: [
-      {
-        title: "Foo",
-        value: "foo",
-      },
-      {
-        title: "Bar",
-        value: "bar",
-      },
-      {
-        title: "Fizz",
-        value: "fizz",
-      },
-      {
-        title: "Buzz",
-        value: "buzz",
-      },
-    ],
-  }),
-
-  watch: {
-    group() {
-      this.drawer = false;
-    },
-  },
-};
+const tab = ref(null);
 </script>
 
 <style scoped>
-div {
+.page_wrapper {
   display: flex;
-  margin-top: 100px;
-  /* background-color: red; */
-  /* height: 100%; */
   justify-content: center;
 }
 </style>
