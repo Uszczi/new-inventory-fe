@@ -35,7 +35,7 @@ onMounted(async () => {
         label="Search"
         clearable
       ></v-text-field>
-      <v-btn class="mx-2" icon="mdi-plus" color="primary"></v-btn>
+      <v-btn class="mx-2" icon="mdi-plus" to="/movie" color="primary"></v-btn>
     </div>
     <v-row align="center">
       <v-col cols="7"

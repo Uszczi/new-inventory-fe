@@ -10,8 +10,8 @@ export interface Movie {
 
 export default class MoviesService {
   public static async getMovies(): Promise<Movie[]> {
-    const response = await axios.get("http://localhost:8000/api/movies");
-    // const response = await axios.get("https://mateuszpapuga.pl/api/movies");
+    // const response = await axios.get("http://localhost:8000/api/movies");
+    const response = await axios.get("https://mateuszpapuga.pl/api/movies");
     return response.data;
   }
 }

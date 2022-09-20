@@ -11,9 +11,11 @@
 
         <v-spacer></v-spacer>
 
-        <v-btn variant="text" icon="mdi-magnify"></v-btn>
-        <v-btn variant="text" icon="mdi-filter"></v-btn>
-        <v-btn variant="text" icon="mdi-dots-vertical"></v-btn>
+        <v-btn
+          icon="mdi-github"
+          target="_blank"
+          href="https://github.com/Uszczi"
+        ></v-btn>
       </v-app-bar>
 
       <v-navigation-drawer v-model="drawer" bottom temporary>

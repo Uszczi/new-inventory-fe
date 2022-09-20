@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-10" style="width: 100%">
+  <div class="mt-10" style="width: 100%; max-width: 700px">
     <div
       class="d-flex align-center"
       style="align-items: center; justify-content: center"
@@ -23,7 +23,11 @@
       </v-col>
 
       <v-col cols="6">
-        <v-text-field label="Watch day" required></v-text-field>
+        <v-text-field
+          v-model="movie.watch_date"
+          label="Watch day"
+          required
+        ></v-text-field>
       </v-col>
     </v-row>
 
@@ -33,5 +37,16 @@
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+import { ref } from "vue";
+
+let movie = ref({
+  title: null,
+  directors: null,
+  production_year: null,
+  watch_date: null,
+});
+</script>
 
 <style scoped></style>
