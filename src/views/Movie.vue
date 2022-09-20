@@ -1,69 +1,36 @@
 <template>
-  <div>
-    <span class="text-h5">User Profile</span>
-    <v-card-text>
-      <v-container>
-        <v-row>
-          <v-col cols="12" sm="6" md="4">
-            <v-text-field label="Legal first name*" required></v-text-field>
-          </v-col>
-          <v-col cols="12" sm="6" md="4">
-            <v-text-field
-              label="Legal middle name"
-              hint="example of helper text only on focus"
-            ></v-text-field>
-          </v-col>
-          <v-col cols="12" sm="6" md="4">
-            <v-text-field
-              label="Legal last name*"
-              hint="example of persistent helper text"
-              persistent-hint
-              required
-            ></v-text-field>
-          </v-col>
-          <v-col cols="12">
-            <v-text-field label="Email*" required></v-text-field>
-          </v-col>
-          <v-col cols="12">
-            <v-text-field
-              label="Password*"
-              type="password"
-              required
-            ></v-text-field>
-          </v-col>
-          <v-col cols="12" sm="6">
-            <v-select
-              :items="['0-17', '18-29', '30-54', '54+']"
-              label="Age*"
-              required
-            ></v-select>
-          </v-col>
-          <v-col cols="12" sm="6">
-            <v-autocomplete
-              :items="[
-                'Skiing',
-                'Ice hockey',
-                'Soccer',
-                'Basketball',
-                'Hockey',
-                'Reading',
-                'Writing',
-                'Coding',
-                'Basejump',
-              ]"
-              label="Interests"
-              multiple
-            ></v-autocomplete>
-          </v-col>
-        </v-row>
-      </v-container>
-      <small>*indicates required field</small>
-    </v-card-text>
-    <v-card-actions>
-      <v-spacer></v-spacer>
-      <v-btn color="blue-darken-1" text @click="dialog = false"> Close </v-btn>
-      <v-btn color="blue-darken-1" text @click="dialog = false"> Save </v-btn>
-    </v-card-actions>
+  <div class="mt-10" style="width: 100%">
+    <div
+      class="d-flex align-center"
+      style="align-items: center; justify-content: center"
+    >
+      <span class="text-h5 text-center">Record New Movie</span>
+    </div>
+    <v-row class="mt-2" style="">
+      <v-col cols="12">
+        <v-text-field label="Title" required></v-text-field>
+      </v-col>
+
+      <v-col cols="12">
+        <v-text-field
+          label="Directors (comma seperated)"
+          required
+        ></v-text-field>
+      </v-col>
+
+      <v-col cols="6">
+        <v-text-field label="Production year" required></v-text-field>
+      </v-col>
+
+      <v-col cols="6">
+        <v-text-field label="Watch day" required></v-text-field>
+      </v-col>
+    </v-row>
+
+    <div class="d-flex" style="justify-content: space-between">
+      <v-btn color="red-lighten-2" text @click="dialog = false"> Cancel </v-btn>
+      <v-btn color="green-lighten-2" text @click="dialog = false"> Save </v-btn>
+    </div>
   </div>
 </template>
 

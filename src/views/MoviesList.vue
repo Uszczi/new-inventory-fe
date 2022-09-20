@@ -13,7 +13,7 @@ watch(select, (newValue) => {
   if (newValue === "Watch date") {
     selectValue.value = "watch_date";
   } else if (newValue === "Directors") {
-    selectValue.value = "director";
+    selectValue.value = "directors";
   } else {
     selectValue.value = "production_year";
   }

@@ -30,7 +30,7 @@
         </v-list>
       </v-navigation-drawer>
 
-      <v-main style="display: flex; justify-content: center">
+      <v-main style="display: flex; justify-content: center" class="pl-3 pr-3">
         <router-view></router-view>
       </v-main>
     </v-layout>
